@@ -1,0 +1,25 @@
+{
+  "build": "HamTech V1.4beta TX06 BLACK DASHBOARD",
+  "base": "TX05 BLACK UI / TX04 BOLD WATERFALL",
+  "change": "Targeted frame_vfoBack background behind the main frequency and signal/power/SWR meter dashboard: RGB(120,120,110) grey to jet black. Separate RIT button grey retained.",
+  "patch": {
+    "app_file_offset": "0xdb74a",
+    "image_raw_offset": "0x101a774a",
+    "before": "background:rgb(120,120,110);",
+    "after": "background:rgb(000,000,000);"
+  },
+  "retained": [
+    "TX04 3-row waterfall renderer",
+    "TX03 waterfall palette",
+    "PTT",
+    "ATU",
+    "G90 1.81 compatibility code",
+    "FFT/span logic",
+    "RIT button styling",
+    "M0FXB HamTech branding"
+  ],
+  "input_app_sha256": "93deec7033707641fe945ef13f1d9aec3c8a4fa356867b9fe19b91099ba543d9",
+  "output_app_sha256": "914b6dbf7645a37927c1d2cd909bdb85f9dc0afdfe2688ffc695e5c9d66719bb",
+  "output_image_sha256": "1603cd0693cbdc185ec499885e28d2ca806f2c7efc7aebdc8c52905ca6d65f0d",
+  "hardware_test": "Not hardware-tested here; use a spare microSD and keep TX05/TX04/TX03 fallback."
+}

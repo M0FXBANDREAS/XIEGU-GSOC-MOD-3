@@ -1,0 +1,4 @@
+1603cd0693cbdc185ec499885e28d2ca806f2c7efc7aebdc8c52905ca6d65f0d  M0FXB-HamTech-GSOC-MOD-V1.4beta-TX06-BLACK-DASHBOARD-Windows.img
+914b6dbf7645a37927c1d2cd909bdb85f9dc0afdfe2688ffc695e5c9d66719bb  gsoc_app_v1
+5b19eeb827adee427e8f3c671f94d5af22d2a684724558b5d3fc8c58a4382634  TX06-patch-manifest.json
+846546efc556fc9507c6d6b7eb8647bd937e2a219b36f644a2a0b05c2fcf3c8c  Readme-Windows-TX06.txt

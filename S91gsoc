@@ -1,0 +1,27 @@
+#!/bin/sh
+. /etc/profile
+case "$1" in
+start)
+    LOG=/tmp/HAMTECH-APP.txt
+    if grep -q ' /mnt/hamtech-logs ' /proc/mounts; then
+        LOG=/mnt/hamtech-logs/HAMTECH-APP.txt
+    fi
+    echo 'HAMTECH V1.4beta TX-test 01: launching patched stock GSOC GUI' > "$LOG"
+    # Show the brand before starting the original radio application.
+    if command -v feh >/dev/null 2>&1; then
+        feh -F -Z /usr/local/gsoc/gsoc_wallpaper.png >> "$LOG" 2>&1 &
+        SPLASH_PID=$!
+        sleep 3
+        kill "$SPLASH_PID" 2>/dev/null || true
+        wait "$SPLASH_PID" 2>/dev/null || true
+    fi
+    /usr/local/gsoc/gsoc_app_v1 >> "$LOG" 2>&1 &
+    echo $! > /run/hamtech-gsoc.pid
+    ;;
+stop)
+    if [ -f /run/hamtech-gsoc.pid ]; then
+        kill "$(cat /run/hamtech-gsoc.pid)" 2>/dev/null || true
+    fi
+    sync
+    ;;
+esac

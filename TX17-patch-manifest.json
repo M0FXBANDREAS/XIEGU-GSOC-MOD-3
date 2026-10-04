@@ -1,0 +1,17 @@
+{
+  "build": "HamTech V1.4beta TX17 CLEAN PRE-MODEM BASELINE",
+  "base": "TX06 BLACK DASHBOARD / TX04 BOLD WATERFALL",
+  "change": "No modem UI patches. Restored the complete pre-modem-modification TX06 application and image payload as the clean baseline.",
+  "gsoc_app_v1_sha256": "914b6dbf7645a37927c1d2cd909bdb85f9dc0afdfe2688ffc695e5c9d66719bb",
+  "retained": [
+    "TX06 black main dashboard",
+    "TX04 3-row waterfall renderer",
+    "TX03 waterfall palette",
+    "PTT",
+    "ATU",
+    "G90 1.81 compatibility code",
+    "M0FXB HamTech branding"
+  ],
+  "modem_ui": "Unmodified pre-TX07 modem UI from TX06",
+  "hardware_test": "Not hardware-tested here; use a spare microSD and keep a known-good fallback."
+}

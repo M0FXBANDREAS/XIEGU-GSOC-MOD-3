@@ -1,0 +1,29 @@
+#!/bin/sh
+# Logs to the SD FAT partition only; never mount internal eMMC.
+case "$1" in
+start)
+    mkdir -p /mnt/hamtech-logs
+    case "$(cat /proc/cmdline)" in
+        *root=/dev/mmcblk0p2*)
+            mount -t vfat -o rw /dev/mmcblk0p3 /mnt/hamtech-logs || true
+            ;;
+    esac
+    if grep -q ' /mnt/hamtech-logs ' /proc/mounts; then
+        {
+            echo 'HAMTECH V1.4beta TX-test 01 / SD environment'
+            date
+            uname -a
+            echo '--- cmdline'; cat /proc/cmdline
+            echo '--- mounts'; cat /proc/mounts
+            echo '--- CPU'; cat /proc/cpuinfo
+            echo '--- sound cards'; cat /proc/asound/cards
+            echo '--- input'; cat /proc/bus/input/devices
+            echo '--- sound devices'; ls -l /dev/snd
+            echo '--- serial devices'; ls -l /dev/ttyS*
+            echo '--- firmware'; cat /etc/hamtech-release
+            echo '--- kernel'; dmesg
+        } > /mnt/hamtech-logs/HAMTECH-BOOT.txt 2>&1
+        sync
+    fi
+    ;;
+esac
